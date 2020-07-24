@@ -432,29 +432,35 @@ h1 {
       <section>
         <h1><code>calc()</code></h1>
       </section>
+      <section>
+        <h2><code>calc()</code></h2>
+      <div class="section--half colored-bg">
+        <div class="demo resizable">
+          <div class="ex12">
+            <img src="img/csspodcast.jpg" alt="" />
+            <p style="font-size: 1.3rem; margin: 0 auto 2rem; width: calc(100% - 4rem); display: grid; grid-template-columns: auto 1fr auto;"><span>⏯</span><span>The CSS Podcast</span> <span>♥️</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="section--half">
+  <style contenteditable class="display-code css">.ex12 {
+    width: calc(100% - 4rem);
+    background: aliceblue;
+    border: 2px solid lightskyblue;
+    margin: 0 auto 0;
+  }
+  
+  .ex12 img {
+    width: calc(100% - 4rem);
+    margin: 2rem auto 1rem;
+  }</style>
+        </div>
+      </section>
       <style>
         .ex12 {
           font-size: 1.75rem;
         }
       </style>
-      <section>
-        <h2><code>calc()</code></h2>
-      <div class="section--half colored-bg">
-        <div class="demo resizable" >
-          <div class="ex12 box">Hello, this is a paragraph whose width will always be the 6rem smaller than the parent to give it 3rem of space on each side.</div>
-        </div>
-      </div>
-      <div class="section--half">
-  <div contenteditable class="display-code html">
-&lt;div class="ex12 box">Hello, this is a paragraph full of content that will not extend past its bounds. In fact, its width will always be the full width of the parent - 6rem to give it 3rem of space on each side.&lt;/div&gt;
-  </div>
-  <style contenteditable class="display-code css">.ex12 {
-  width: calc(100% - 6rem);
-  margin: 0 auto;
-}
-          </style>
-        </div>
-      </section>
       <section>
         <h2><code>calc()</code></h2>
       <div class="section--half colored-bg">
@@ -515,7 +521,106 @@ h1 {
           </style>
         </div>
       </section>
-      <section> clamp()</section>
+      <section>
+        <h2><code>clamp()</code></h2>
+      <div class="section--half colored-bg">
+        <div class="demo resizable" >
+          <div class="ex16 box">A box with a clamped size.</div>
+        </div>
+      </div>
+      <div class="section--half">
+  <div contenteditable class="display-code html">
+&lt;div class="ex16 box">A box with a clamped size.&lt;/div&gt;
+  </div>
+  <style contenteditable class="display-code css">.ex16 {
+  width: clamp(23ch, 50%, 46ch);
+  margin: 0 auto;
+}
+          </style>
+        </div>
+      </section>
+      <section>
+        <h1><code>place-items</code></h1>
+      </section>
+      <section>
+        <h2><code>place-items</code></h2>
+      <div class="section--half colored-bg">
+        <div class="demo resizable" >
+          <div class="ex17 box" contenteditable>Centered!</div>
+        </div>
+      </div>
+      <div class="section--half">
+  <div contenteditable class="display-code html">
+&lt;div class="ex17 box">A box with a clamped size.&lt;/div&gt;
+  </div>
+  <style contenteditable class="display-code css">.ex17 {
+  display: grid;
+  place-items: center;
+}
+          </style>
+        </div>
+      </section>
+      <section>
+        <h2>Fallback: PostCSS Autoprefixer <code>IE :)</code></h2>
+        <a class="fallback-link" href="https://autoprefixer.github.io">autoprefixer.github.io</a>
+        <div style="margin-top: 1.5rem" contenteditable class="display-code css full">.example {
+  display: grid;
+  place-items: center;
+}
+
+
+/* becomes */
+
+.example {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+} </div>
+      </section>
+      <section>
+        <h1><code>aspect-ratio</code></h1>
+      </section>
+      <section>
+        <h2><code>aspect-ratio</code></h2>
+      <div class="section--half colored-bg">
+        <div class="demo resizable">
+          <div class="ex17">
+            <figure><img src="img/csspodcast.jpg" alt="" /></figure>
+            
+            <p style="font-size: 1.3rem; margin: 0 auto 2rem; width: calc(100% - 4rem); display: grid; grid-template-columns: auto 1fr auto;"><span>⏯</span><span>The CSS Podcast</span> <span>♥️</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="section--half">
+  <style contenteditable class="display-code css">.ex17 {
+    width: calc(100% - 4rem);
+    background: aliceblue;
+    border: 2px solid lightskyblue;
+    margin: 0 auto 0;
+  }
+  
+  .ex17 figure {
+    aspect-ratio: 1 / 1;
+  }</style>
+        </div>
+      </section>
+
+      <section>
+        <h2>Fallback: PostCSS Autoprefixer <code>IE :)</code></h2>
+        <a class="fallback-link" href="https://autoprefixer.github.io">autoprefixer.github.io</a>
+        <div style="margin-top: 1.5rem" contenteditable class="display-code css full">.example {
+  display: grid;
+  place-items: center;
+}
+
+/* becomes */
+
+.example {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+} </div>
+      </section>
       <section>
         <h1><code>@scroll-timeline</code></h1>
       </section>
@@ -548,7 +653,17 @@ h1 {
       </section>
       <section>
         <h1>Thank you!</h1>
-        check out css podcast, toolsday, designing in the browser for more CSS magic
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; height: 320px; gap: 2rem; margin-bottom: 3rem;">
+          <div>
+            <img src="img/csspodcast.jpg" alt="">
+            <p class="caption">pod.link/thecsspodcast</p></div>
+          <div>
+            <img src="img/toolsday.jpg" alt="">
+            <p class="caption">spec.fm/podcasts/toolsday</p></div>
+          <div>
+            <img src="img/DIB.jpg" alt="">
+            <p class="caption">Chrome Developers Youtube</p></div>
+        </div>
         <h2>@una</h2>
       </section>
 
