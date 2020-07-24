@@ -1,0 +1,589 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>reveal.js</title>
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/simple.css">
+  <link rel="stylesheet" href="css/mystyles.css">
+  <link href="https://fonts.googleapis.com/css?family=Finger+Paint|Raleway" rel="stylesheet">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>Modern CSS for Streamlined Styling</h1>
+        <h2>Una Kravets | @una</h2>
+      </section>
+      <section>
+        <img src="img/intro.jpg" alt="">
+        <aside class="notes">
+          I'm Una, I work on CSS at Google! It's truly my dream job. I lucked out.
+        </aside>
+      </section>
+      <section>
+        <img style="max-height: 600px; object-fit: contain" src="img/disco.jpg" alt="">
+        <aside class="notes">
+          this is my dog Disco -- we both work at Google
+        </aside>
+      </section>
+      <section> 
+        <h2>What We'll Learn:</h2>
+        <h3>Tips, Tricks, and New Features!</h3>
+        <ul>
+          <li class="fragment"><code>CSS variables</code></li>
+          <li class="fragment"><code>attr()</code></li>
+          <li class="fragment"><code>calc()</code></li>
+          <li class="fragment"><code>min()</code>, <code>max()</code>, <code>clamp()</code></li>
+          <li class="fragment">logical properties</li>
+          <li class="fragment"><code>place-items</code></li>
+          <li class="fragment"><code>gap</code></li>
+          <li class="fragment"><code>aspect-ratio</code></li>
+          <li class="fragment"><code>backdrop-filter</code></li>
+          <li class="fragment"><code>:is</code>, <code>:where</code></li>
+          <li class="fragment">Scroll-linked Animations</li>
+          <li class="fragment">More!</li>
+        </ul>
+      </section>
+      <!-- <section>
+        <h2 class="introtext2">CSS Functions</h2>
+      </section>
+      <section>
+        <h2>CSS Functions</h2>
+        <ul class="double-col">
+          <li> calc() </li>
+          <li> url() </li>
+          <li> lang() </li>
+          <li> :not() </li>
+          <li> colors </li>
+          <li> var() </li>
+          <li> nth-child() </li>
+          <li> transformations </li>
+          <li> path() </li>
+          <li> steps() </li>
+          <li> filters </li>
+          <li> attr() </li>
+        </ul>
+      </section> -->
+      <section>
+        <h1>Dynamic CSS</h1>
+      </section>
+      <section>
+        <h1><code>currentColor</code></h1>
+      </section>
+      <section>
+        <h2><code>currentColor</code></h2>
+      <div class="section--half colored-bg">
+        <div class="demo">
+          <a class="ex1" href="#">Click Me</a>
+        </div>
+      </div>
+      <div class="section--half">
+  <style contenteditable class="display-code css">
+.ex1 {
+  color: navy;
+  border: 4px solid currentColor;
+  padding: 0.5em;
+  background: white;
+  transition: color 0.5s;
+}
+
+.ex1:hover,
+.ex1:focus {
+  color: darkturquoise;
+}
+          </style>
+        </div>
+      </section>
+      <section>
+        <h2><code>currentColor</code> CSS Variable</h2>
+        <p class="ciu_embed" data-feature="currentcolor" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+          <picture>
+          <source type="image/webp" srcset="https://caniuse.bitsofco.de/image/currentcolor.webp">
+          <source type="image/png" srcset="https://caniuse.bitsofco.de/image/currentcolor.png">
+          <img src="https://caniuse.bitsofco.de/image/currentcolor.jpg" alt="Data on support for the currentcolor feature across the major browsers from caniuse.com">
+          </picture>
+          </p>
+      </section>
+      <section>
+        <h1><code>--var()</code></h1>
+      </section>
+      <section>
+        <h2><code>--var()</code></h2>
+      <div class="section--half colored-bg">
+        <div class="demo">
+          <a class="ex2" href="#">Click Me</a>
+        </div>
+      </div>
+      <div class="section--half">
+  <style contenteditable class="display-code css">
+:root {
+  --colorPrimary: lavender;
+  --linkBg: var(--colorPrimary);
+}
+
+.ex2 {
+  background-color: var(--linkBg);
+  padding: 0.5em;
+  transition: background-color 0.5s;
+}
+
+.ex2:hover,
+.ex2:focus {
+  --linkBg: wheat;
+}</style>
+        </div>
+      </section>
+      <section>
+        <h2><code>--var()</code> CSS Variable</h2>
+        <p class="ciu_embed" data-feature="css-variables" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+          <picture>
+          <source type="image/webp" srcset="https://caniuse.bitsofco.de/image/css-variables.webp">
+          <source type="image/png" srcset="https://caniuse.bitsofco.de/image/css-variables.png">
+          <img src="https://caniuse.bitsofco.de/image/css-variables.jpg" alt="Data on support for the css-variables feature across the major browsers from caniuse.com">
+          </picture>
+          </p>
+      </section>
+      <section>
+        <h2>Fallback: PostCSS Polyfill <code>All</code></h2>
+        <a class="fallback-link" href="https://github.com/postcss/postcss-custom-properties#readme">github.com/postcss/postcss-custom-properties</a>
+        <div style="margin-top: 1.5rem" contenteditable class="display-code css full">:root {
+  --color: red;
+}
+
+h1 {
+  color: var(--color);
+}
+
+/* becomes */
+
+h1 {
+  color: red;
+} </div>
+      </section>
+      <section>
+        <h1><code>@property</code></h1>
+      </section>
+      <section>
+        <iframe width="100%" height="500px"  src="https://ishoudinireadyyet.com" style="border:1px solid lightgray"></iframe>
+      </section>
+      <section>
+        <h2><code>@property</code> CSS Variable</h2>
+        <p class="ciu_embed" data-feature="mdn-css__at-rules__property" data-periods="future_3,future_1,current,past_1,past_2" data-accessible-colours="false">
+      </section>
+      <section>
+        <h2>Without <code>@property</code></h2>
+        <style>
+          .ex3 {
+            padding: 0.5em;
+          }
+        </style>
+      <div class="section--half colored-bg">
+        <div class="demo">
+          <a class="ex3" href="#">Click Me</a>
+        </div>
+      </div>
+      <div class="section--half">
+  <style contenteditable class="display-code css">:root {
+  --gradColorA: violet;
+  --gradColorB: lightblue;
+}
+
+.ex3 {
+  background: linear-gradient(to right, var(--gradColorA), var(--gradColorB));
+  transition: --gradColorA 0.5s, 
+              --gradColorB 0.5s;
+}
+
+.ex3:hover,
+.ex3:focus {
+  --gradColorA: tomato;
+  --gradColorB: pink;
+}</style>
+        </div>
+      </section>
+      <section>
+        <h2><code>@property</code></h2>
+        <style>
+          .ex4 {
+            padding: 0.5em;
+          }
+        </style>
+      <div class="section--half colored-bg">
+        <div class="demo">
+          <a class="ex4" href="#">Click Me</a>
+        </div>
+      </div>
+      <div class="section--half">
+  <style contenteditable class="display-code css">@property --gradColor1 {
+  syntax: '<color>';
+  initial-value: violet;
+  inherits: false;
+}
+
+@property --gradColor2 {
+  syntax: '<color>';
+  initial-value: lightblue;
+  inherits: false;
+}
+
+.ex4 {
+  background: linear-gradient(to right, var(--gradColor1), var(--gradColor2));
+  transition: --gradColor1 0.5s, 
+              --gradColor2 0.5s;
+}
+
+.ex4:hover,
+.ex4:focus {
+  --gradColor1: tomato;
+  --gradColor2: pink;
+}</style>
+        </div>
+      </section>
+      <section>
+        <h2><code>@property</code></h2>
+        <style>
+          .ex5 {
+            padding: 0.5em;
+          }
+        </style>
+      <div class="section--half colored-bg">
+        <div class="demo">
+          <a class="ex5" href="#">Click Me</a>
+        </div>
+      </div>
+      <div class="section--half">
+  <style contenteditable class="display-code css">@property --gradHint {
+  syntax: '<percentage>';
+  initial-value: 30%;
+  inherits: false;
+}
+
+.ex5 {
+  background: linear-gradient(to right, var(--gradColor1), var(--gradHint), var(--gradColor2));
+  transition: --gradHint 0.5s;
+}
+
+.ex5:hover,
+.ex5:focus {
+  --gradHint: 70%;
+}</style>
+        </div>
+      </section>
+      <section>
+        <h2>Fallback: PostCSS Polyfill <code>Chromium</code></h2>
+        <a class="fallback-link" href="#">tbd</a>
+        <div style="margin-top: 1.5rem" contenteditable class="display-code css full">TODO</div>
+      </section>
+      <section>
+        Gradient Interpolation Hints
+      </section>
+      <section>
+        <iframe width="100%" height="500px" frameborder="0" src="https://cdpn.io/una/debug/RwNGGmx"></iframe>
+      </section>
+      <section>
+        <h2>Gradient Interpolation Hints</h2>
+        <p class="ciu_embed" data-feature="mdn-css__types__image__gradient__linear-gradient__interpolation_hints" data-periods="future_3,future_1,current,past_1,past_2" data-accessible-colours="false"></p>
+      </section>
+      <section>
+        Fallback
+      </section>
+      <section>
+        <h1><code>attr()</code></h1>
+      </section>
+      <section>
+        <h2><code>attr()</code></h2>
+        <style>
+        .box {
+          padding: 1rem;
+          color: white;
+          background: slategray;
+        }
+        </style>
+      <div class="section--half colored-bg">
+        <div class="demo">
+          <div class="ex8 box" name="AEA">hello, </div>
+        </div>
+      </div>
+      <div class="section--half">
+  <div contenteditable class="display-code html">
+&lt;div class="ex8 box" name="AEA"&gt;&lt;/div&gt;
+  </div>
+  <style contenteditable class="display-code css">
+.ex8::after {
+  content: attr(name);
+}
+          </style>
+        </div>
+      </section>
+      <section>
+        <h2><code>attr()</code></h2>
+        <style>
+          .ex9 {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+          }
+
+          .ex9::after {
+            top: -100%;
+            left: -170px;
+            color: black;
+            font-size: 1.25rem;
+            width: 400px;
+            background: white;
+            padding: 0.5rem;
+            border: 1px solid lightgray;
+          }
+        </style>
+      <div class="section--half colored-bg">
+        <div class="demo">
+          <div class="ex9 box" content="Additional information to be shown in the tooltip content">?</div>
+        </div>
+      </div>
+      <div class="section--half">
+  <div contenteditable class="display-code html">
+&lt;div class="ex9 box" content="Additional information to be shown in the tooltip content"&gt;&lt;/div&gt;
+  </div>
+  <style contenteditable class="display-code css">.ex9 {
+    position: relative;
+  }
+.ex9::after {
+  content: attr(content);
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.ex9:hover::after,
+.ex9:focus::after {
+  opacity: 1;
+}
+          </style>
+        </div>
+      </section>
+      <section>
+        <h2>⚠️ Accessibility Danger Zone</h2>
+      </section>
+      <section>
+      <h2><code>attr()</code> Selector</h2>
+      <p class="ciu_embed" data-feature="mdn-css__types__attr" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
+    </section>
+      <section>
+        <h2>😢 Limited to Strings</h2>
+      </section>
+      <section>
+          <h2>Future <code>attr()</code> 🤞🏼</h2>
+          <style>
+          .reveal .ex10 {
+            background: red;
+          }
+          </style>
+        <div class="section--half colored-bg">
+          <div class="demo">
+            <div class="ex10 box" color="red" >hello, world</div>
+          </div>
+        </div>
+        <div class="section--half">
+    <div contenteditable class="display-code html">
+  &lt;div class="ex10 box" color="red"&gt;&lt;/div&gt;
+    </div>
+    <style contenteditable class="display-code css">
+  .ex10 {
+    background: attr(color);
+  }
+            </style>
+          </div>
+        </section>
+        <section>
+        <h2>Fallback: Custom Properties <code>Modern</code></h2>
+        <div class="section--half colored-bg">
+          <div class="demo">
+            <div class="ex11 box" style="--color: red">hello, world</div>
+          </div>
+        </div>
+        <div class="section--half">
+    <div contenteditable class="display-code html">
+  &lt;div class="ex11 box" style="--color: red"&gt;&lt;/div&gt;
+    </div>
+    <style contenteditable class="display-code css">
+  .ex11 {
+    background: var(--color);
+  }
+            </style>       
+      </section>
+      <section>
+        <h1><code>calc()</code></h1>
+      </section>
+      <style>
+        .ex12 {
+          font-size: 1.75rem;
+        }
+      </style>
+      <section>
+        <h2><code>calc()</code></h2>
+      <div class="section--half colored-bg">
+        <div class="demo resizable" >
+          <div class="ex12 box">Hello, this is a paragraph whose width will always be the 6rem smaller than the parent to give it 3rem of space on each side.</div>
+        </div>
+      </div>
+      <div class="section--half">
+  <div contenteditable class="display-code html">
+&lt;div class="ex12 box">Hello, this is a paragraph full of content that will not extend past its bounds. In fact, its width will always be the full width of the parent - 6rem to give it 3rem of space on each side.&lt;/div&gt;
+  </div>
+  <style contenteditable class="display-code css">.ex12 {
+  width: calc(100% - 6rem);
+  margin: 0 auto;
+}
+          </style>
+        </div>
+      </section>
+      <section>
+        <h2><code>calc()</code></h2>
+      <div class="section--half colored-bg">
+        <iframe class="resizable" height="500px" width="100%" src="https://codepen.io/una/debug/b308f4900e2d9575fb6817cd209bc93a" frameborder="0"></iframe>
+      </div>
+      <div class="section--half">
+      <img src="img/advanced-calc-800-opt.png" alt="">
+      <small>Technique by <a href="https://www.madebymike.com.au/">Mike Riethmuller</a></small>
+  <div contenteditable class="display-code html">
+&lt;div class="ex13">I am a fluid heading.&lt;/div&gt;
+  </div>
+  <style contenteditable class="display-code css">.ex13 {
+  font-size: calc(42px + 30 * ((100vw - 320px) / 960));
+}
+          </style>
+        </div>
+      </section>
+      <section>
+        <h2><code>calc()</code></h2>
+        <p class="ciu_embed" data-feature="calc" data-periods="future_3,future_1,current,past_1,past_2" data-accessible-colours="false"></p>
+      </section>
+      <section>
+        <h1 style="line-height: 1.5"><code>min()</code>, <code>max()</code>, <code>clamp()</code></h1>
+      </section>
+      <section>
+        <h2><code>min()</code></h2>
+      <div class="section--half colored-bg">
+        <div class="demo resizable" >
+          <div class="ex14 box">A box bounding to a min size.</div>
+        </div>
+      </div>
+      <div class="section--half">
+  <div contenteditable class="display-code html">
+&lt;div class="ex14 box">A box bounding to a min size.&lt;/div&gt;
+  </div>
+  <style contenteditable class="display-code css">.ex14 {
+  width: min(40%, 60rem);
+  margin: 0 auto;
+}
+          </style>
+        </div>
+      </section>
+      <section>
+        <h2><code>max()</code></h2>
+      <div class="section--half colored-bg">
+        <div class="demo resizable" >
+          <div class="ex15 box">A box bounding to a max size.</div>
+        </div>
+      </div>
+      <div class="section--half">
+  <div contenteditable class="display-code html">
+&lt;div class="ex15 box">A box bounding to a max size.&lt;/div&gt;
+  </div>
+  <style contenteditable class="display-code css">.ex15 {
+  width: max(60%, 10rem);
+  margin: 0 auto;
+}
+          </style>
+        </div>
+      </section>
+      <section> clamp()</section>
+      <section>
+        <h1><code>@scroll-timeline</code></h1>
+      </section>
+      <section>
+        demo of what it is
+      </section>
+      <section>
+        caniuse: none
+      </section>
+      <section>
+      <h2>Fallback: JS API <code>IE?+</code></h2>
+        <a class="fallback-link" href="https://github.com/flackr/scroll-timeline">github.com/flackr/scroll-timeline</a>
+        <div class="section--half colored-bg">
+          <div class="demo">
+            <div class="ex11 box" style="--color: red">hello, world</div>
+          </div>
+        </div>
+        <div class="section--half">
+    <div contenteditable class="display-code html">
+  &lt;div class="ex11 box" style="--color: red"&gt;&lt;/div&gt;
+    </div>
+    <style contenteditable class="display-code css">
+  .ex11 {
+    background: var(--color);
+  }
+            </style>       
+      </section>
+      <section>
+        <h2>Linting HTML with Advanced CSS Selectors</h2>
+      </section>
+      <section>
+        <h1>Thank you!</h1>
+        check out css podcast, toolsday, designing in the browser for more CSS magic
+        <h2>@una</h2>
+      </section>
+
+      <script src="lib/js/head.min.js"></script>
+      <script src="js/reveal.js"></script>
+
+      <script>
+        // More info about config & dependencies:
+        // - https://github.com/hakimel/reveal.js#configuration
+        // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+          history: true,
+          transition: 'none',
+          dependencies: [{
+              src: 'plugin/markdown/marked.js'
+            },
+            {
+              src: 'plugin/markdown/markdown.js'
+            },
+            {
+              src: 'plugin/notes/notes.js',
+              async: true
+            },
+            {
+              src: 'plugin/highlight/highlight.js',
+              async: true,
+              callback: function () {
+                hljs.initHighlightingOnLoad();
+              }
+            }
+          ]
+        });
+      </script>
+      <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/public/caniuse-embed.min.js"></script>
+
+</body>
+
+</html>

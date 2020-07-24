@@ -1,0 +1,380 @@
+:root {
+  /* --duo-highlight: #ff3ebf;
+  --duo-shadow: #4000ff; */
+}
+
+.reveal img, .reveal video, .reveal iframe {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.reveal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.reveal img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reveal h1,
+.reveal h2 {
+  text-transform: none;
+  font-family: 'Raleway', serif;
+}
+
+.reveal h1 code,
+.reveal h2 code {
+  background: lavender;
+  padding: 0 0.4em 0.1em;
+  border-radius: 100px;
+  border: 1px solid #ddbcff;
+}
+
+.reveal h3 {
+  background: lavender;
+  font-family: system-ui;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.reveal code {
+  font-family: 'Dank Mono';
+}
+
+.reveal .display-code {
+  display: block;
+  text-align: left;
+  font-family: 'Dank Mono', 'Inconsolata', monospace;
+  white-space: pre-wrap;
+  font-size: 22px;
+  background-color: white;
+  color: black;
+  height: 100%;
+  padding: .5em;
+  border: 2px dashed lightgray;
+  transition-duration: 0.5s;
+  position: relative;
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+.reveal .display-code:focus {
+  outline: none;
+  border-style: solid;
+  border-color: lightpink;
+  background: #fff7f7;
+}
+
+.reveal .display-code::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: lightpink;
+  padding: 0 0.5rem;
+}
+
+
+.reveal .display-code.html::after {
+  content: 'html'
+}
+
+.reveal .display-code.css::after {
+  content: 'css'
+}
+
+
+.reveal .source {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  font-size: 0.9rem;
+  margin: 0.5rem;
+}
+
+.reveal .section--half {
+  width: calc(50% - 20px);
+  float: left;
+}
+
+.section--half + .section--half {
+  margin-left: 20px;
+}
+
+.double-col {
+  margin-left: -1em;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 4em;
+  -moz-column-count: 2;
+  -moz-column-gap: 4em;
+  column-count: 2;
+  column-gap: 4em;
+  font-size: 1.8em;
+  margin-top: 1em;
+}
+
+.screened {
+  mix-blend-mode: screen;
+}
+
+.filtered {
+  filter: contrast(1.4) hue-rotate(10deg);
+}
+
+.left {
+  width: 49%;
+  float: left;
+  position: relative;
+}
+
+.right {
+  width: 49%;
+  float: right;
+  position: relative;
+}
+
+.background-block {
+  z-index: -1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 65vh;
+  display: block;
+  min-height: 700px;
+  background: url('../img/underwater.jpg');
+  background-size: cover;
+}
+
+.duo-float {
+  width: 60%;
+  height: 60%;
+  display: block;
+  position: absolute;
+  right: 0;
+}
+
+.duo-float-1 {
+  top: 0;
+  background: var(--duo-highlight);
+  mix-blend-mode: darken;
+  z-index: 200;
+}
+
+.duo-float-1::after {
+  content: 'darken highlight'
+}
+
+.duo-float-2 {
+  bottom: 0;
+  background: var(--duo-shadow);
+  mix-blend-mode: lighten;
+  z-index: 100;
+}
+
+.duo-float-2::after {
+  content: 'lighten shadow'
+}
+
+.fox-example > *{
+  transition: transform 1s;
+}
+
+.fox-example.translated img {
+  transform: rotateX(45deg) rotateZ(-45deg) translateZ(-380px);
+}
+
+.fox-example.translated .duo-float-1 {
+  transform: rotateX(45deg) rotateZ(-45deg) translateZ(150px);
+}
+
+.fox-example.translated .duo-float-2 {
+  transform: rotateX(45deg) rotateZ(-45deg) translateZ(300px);
+}
+
+.svg-css-ex,
+.svg-css-ex2 {
+  position: relative;
+}
+
+.svg-css-ex::after,
+.svg-css-ex2::after {
+  content: '';
+  position: absolute;
+  display: block;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+}
+
+::selection {
+  color: black;
+  background: yellow;
+}
+
+.hoverpic,
+.hoverpic2,
+.hoverpic3 {
+  position: relative;
+  transition-duration: .5s;
+}
+
+.hoverpic::after,
+.hoverpic2::after,
+.hoverpic3::after {
+  background: url('../img/doggo2.jpeg');
+  background-size: cover;
+}
+
+.hoverpic:hover::after,
+.hoverpic2:hover::after,
+.hoverpic3::after {
+  mix-blend-mode: multiply;
+}
+
+.hoverpic2:hover {
+  filter: contrast(1.3)
+}
+
+.hoverpic3::after {
+  z-index: 2;
+}
+
+.hoverpic3 img {
+  transition-duration: 0.5s;
+  opacity: 0;
+}
+
+.hoverpic3:hover img {
+  opacity: 1;
+}
+
+.reveal .algo {
+  font-size: 1.2em; 
+  margin-top: 1em; 
+  font-family: 'Dank Mono', 'Inconsolata', monospace;
+  letter-spacing: 4px;
+  position: relative;
+}
+
+.reveal .algo2 small{
+  margin-top: -0.75rem;
+}
+
+.reveal .algo small {
+  position: absolute;
+  top: -1rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  left: 0;
+  right: 0;
+  color: dimgray;
+}
+
+.reveal .woodbg {
+  width: 100%;
+  height: 600px;
+  position: absolute;
+  background: url('../img/openbg-rawpixel.jpg');
+  background-size: cover;
+  z-index: -1;
+}
+
+.reveal .paint {
+  font-family: 'Finger Paint';
+  mix-blend-mode: overlay;
+  color: #3f306b;
+  font-size: 7rem;
+  max-width: 500px;
+  margin: 150px auto 0;
+  cursor: url('../img/cursor.png'), auto;
+}
+
+.reveal .paint:hover {
+  animation: rainbow 3s infinite forwards ease-in;
+  cursor: url('../img/cursor.png'), auto;
+}
+
+@keyframes rainbow {
+  from {
+    filter: hue-rotate(0)
+  }
+  to {
+    filter: hue-rotate(360deg)
+  }
+}
+
+@keyframes moveout {
+  from {
+    transform: translateX(0)
+  }
+  to {
+    transform: translateX(10px)
+  }
+}
+
+@keyframes moveout1 {
+  from {
+    transform: translateX(0)
+  }
+  to {
+    transform: translateX(-5px)
+  }
+}
+
+@keyframes moveout2 {
+  from {
+    transform: translateX(0)
+  }
+  to {
+    transform: translateX(5px)
+  }
+}
+
+.color-me,
+.color-me::after,
+.introtext,
+.introtext::after,
+.hoverpic,
+.hoverpic::after,
+.hoverpic2,
+.hoverpic2::after,
+.hoverpic3,
+.hoverpic3::after   {
+  cursor: url('../img/cursor.png'), auto;
+}
+
+.reveal .ciu_embed iframe {
+  border: none;
+}
+
+/* new */
+
+.reveal .demo {
+  height: 500px;
+  display: grid;
+  place-content: center;
+  background: #FFF7F7;
+  border: 2px solid lightpink;
+}
+
+.display-code + .display-code {
+  margin-top: 1rem;
+}
+
+.reveal .fallback-link {
+  background: var(--colorPrimary);
+  padding: 0.25rem 1rem;
+  text-decoration: underline;
+  color: #8156f3;
+}
+
+.reveal .resizable {
+  resize: both;
+  overflow: hidden;
+}
