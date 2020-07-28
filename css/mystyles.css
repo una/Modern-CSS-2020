@@ -88,6 +88,13 @@ img {
   content: 'css'
 }
 
+.reveal .display-code.js::after {
+  content: 'js'
+}
+
+.reveal .display-code.json::after {
+  content: 'json'
+}
 
 .reveal .source {
   position: absolute;
@@ -361,6 +368,8 @@ img {
   place-content: center;
   background: #FFF7F7;
   border: 2px solid lightpink;
+  z-index: 2;
+  position: relative;
 }
 
 .display-code + .display-code {
@@ -377,4 +386,14 @@ img {
 .reveal .resizable {
   resize: both;
   overflow: hidden;
+}
+
+.caption {
+  font-size: 1.25rem;
+}
+
+.end-img {
+  object-fit: cover;
+  object-position: center;
+  height: 270px;
 }
