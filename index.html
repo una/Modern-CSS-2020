@@ -698,21 +698,108 @@ figure img {
         <h1><code>:is()</code>, <code>:where()</code></h1>
       </section>
       <section>
+        <h2><code>:is()</code> and <code>:where()</code></h2>
+      <div class="section--half colored-bg">
+        <div class="demo resizable">
+            <a class="ex19 box" href="#">Hover me</a>
+        </div>
+      </div>
+      <div class="section--half">
+  <div contenteditable class="display-code html">&lt;a class="ex19 box" href="#"&gt;Hover me&lt;/a&gt;</div>
+  <style contenteditable class="display-code css">.ex19 {
+  background-color: hotpink;
+}
+
+.ex19:hover {
+  background-color: orange;
+}
+
+.ex19:is(:hover, :focus) {
+  background-color: rebeccapurple;
+}
+</style>
+        </div>
+      </section>
+      <section>
         <h2><code>:is()</code>, <code>:where()</code></h2>
         <p class="ciu_embed" data-feature="mdn-css__selectors__is" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
           </p>
       </section>
       <section>
         <h2>Fallback: Longform</code></h2>
-        <div style="margin-top: 1.5rem" contenteditable class="display-code css full">Code Here</div>
+        <div style="margin-top: 1.5rem" contenteditable class="display-code css full">.ex19:is(:hover, :focus) {
+  background-color: rebeccapurple;
+}
+
+/* becomes */
+
+.ex19:hover, 
+.ex19:focus {
+  background-color: rebeccapurple;
+}</div>
       </section>
       <section>
         <h1>Logical Properties</h1>
       </section>
       <section>
+        <img src="img/logical-layout.png" alt="">
+      </section>
+      <section>
         <h2>Logical Properties</h2>
         <p class="ciu_embed" data-feature="css-logical-props" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
           </p>
+      </section>
+      <section>
+        DEMO
+      </section>
+      <section>
+        NEW SHORTHAND PROPERTIES (margin-inline, margin-block, etc.)  
+      </section>
+      <section>
+        <blockquote style="margin: 0 auto" class="twitter-tweet"><p lang="en" dir="ltr">Here&#39;s gap + flexbox handling international document flows and directions! 💯 Something quite tedious to do by hand with margin &amp; friends. <br><br>Combine this with logical properties and you have yourself single definition international spacing and layout 😍 <a href="https://t.co/Z6yHjo5qQZ">https://t.co/Z6yHjo5qQZ</a> <a href="https://t.co/2TAiQOKYJ1">pic.twitter.com/2TAiQOKYJ1</a></p>&mdash; Adam Argyle (@argyleink) <a href="https://twitter.com/argyleink/status/1255201934241198081?ref_src=twsrc%5Etfw">April 28, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </section>
+      <section>
+        <h2>Fallback: PostCSS Polyfill <code>All</code></h2>
+        <a class="fallback-link" href="https://github.com/csstools/postcss-logical#readme">github.com/csstools/postcss-logical</a>
+        <div style="margin-top: 1.5rem" contenteditable class="display-code css full">.banner {
+  padding-inline: 20px 40px;
+}
+
+/* becomes */
+
+.banner:dir(ltr) {
+  padding-left: 20px; padding-right: 40px;
+}
+
+.banner:dir(rtl) {
+  padding-right: 20px; padding-left: 40px;
+}</div>
+      </section>
+      <section>
+        <h1><code>backdrop-filter</code></h1>
+      </section>
+      <section>
+        <h2><code>backdrop-filter</code></h2>
+        <div class="section--half colored-bg">
+          <div class="ex22 demo resizable">
+            <div class="box">Disco Doodle</div>
+          </div>
+        </div>
+        <div class="section--half">
+    <div contenteditable class="display-code html">&lt;div class="ex22 demo resizable"&gt;
+  &lt;div class="box"&gt;Disco Doodle&lt;/div&gt;
+&lt;/div&gt;</div>
+    <style contenteditable class="display-code css">.ex22.demo{
+  background: url('img/disco-boi.jpg') center / cover;
+}
+
+.ex22 .box {
+  backdrop-filter: blur(5px);
+  color: #222;
+  font-weight: 800;
+  background: none;
+  padding: 2rem;
+}</style>       
       </section>
       <section>
         <h1><code>@scroll-timeline</code></h1>
