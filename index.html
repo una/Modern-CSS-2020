@@ -745,15 +745,52 @@ figure img {
         <img src="img/logical-layout.png" alt="">
       </section>
       <section>
+        <style>.ex20 figure {
+          width: 60%;
+          margin: 0 auto;
+          background: aliceblue;
+          border: 2px solid lightblue;
+          font-size: 1.5rem;
+        }
+        
+        .ex20 figcaption {
+    z-index: 2;
+    position: relative;
+    width: max-content;
+    padding: 0 0.5rem;</style>
+        <h2><code>logical properties</code></h2>
+      <div class="section--half colored-bg">
+        <div class="demo resizable" style="text-align: initial;">
+          <div class="ex20">
+            <figure>
+              <img src="img/csspodcast.jpg" alt="" />
+              <figcaption>Click to Subscribe!</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <div class="section--half">
+  <style contenteditable class="display-code css">.ex20 figure {
+    direction: ltr;
+    padding: 0.5rem;
+  }
+
+  .ex20 figcaption {
+    margin-block-start: -1.25rem;
+    margin-inline-start: -1.25rem;
+    background: yellow;
+    outline: 2px solid gold;
+  }
+</style>
+        </div>
+      </section>
+      <section>
+        <img src="img/mdnlogical.png" alt="">
+      </section>
+      <section>
         <h2>Logical Properties</h2>
         <p class="ciu_embed" data-feature="css-logical-props" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
           </p>
-      </section>
-      <section>
-        DEMO
-      </section>
-      <section>
-        NEW SHORTHAND PROPERTIES (margin-inline, margin-block, etc.)  
       </section>
       <section>
         <blockquote style="margin: 0 auto" class="twitter-tweet"><p lang="en" dir="ltr">Here&#39;s gap + flexbox handling international document flows and directions! 💯 Something quite tedious to do by hand with margin &amp; friends. <br><br>Combine this with logical properties and you have yourself single definition international spacing and layout 😍 <a href="https://t.co/Z6yHjo5qQZ">https://t.co/Z6yHjo5qQZ</a> <a href="https://t.co/2TAiQOKYJ1">pic.twitter.com/2TAiQOKYJ1</a></p>&mdash; Adam Argyle (@argyleink) <a href="https://twitter.com/argyleink/status/1255201934241198081?ref_src=twsrc%5Etfw">April 28, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -829,6 +866,26 @@ figure img {
             </style>       
       </section>
       <section>
+        <h2>You can use modern CSS today!</h2>
+      </section>
+      <section>
+        <h2 style="font-size: 2.25rem;">You can use modern CSS today!</h2>
+        <ul class="endlist">
+          <li><div><code>currentColor</code></div> <span class="nonplugin">supported in older browsers</span></li>
+          <li><div><code>--var()</code></div> <a class="plugin" href="https://github.com/jonathantneal/postcss-custom-properties">postcss-custom-properties</a></li>
+          <li><div><code>@property</code></div> <a class="plugin" href="https://github.com/jonathantneal/postcss-register-property">postcss-register-property</a></li>
+          <li><div><code>Gradient interpolation hints</code></div> <span class="nonplugin">TBD</span></li>
+          <li><div><code>attr()</code></div> <span class="nonplugin">supported in older browsers</span></li>
+          <li><div><code>calc()</code></div> <span class="nonplugin">supported in older browsers</span></li>
+          <li><div><code>min()</code>, <code>max()</code>, <code>clamp()</code></div> <span class="nonplugin">media queries</span></li>
+          <li><div><code>palce-items</code></div> <a class="plugin" href="https://github.com/postcss/postcss-autoprefixer">postcss-autoprefixer</a></li>
+          <li><div><code>aspect-ratio</code></div> <span class="nonplugin">padding hack</span></li>
+          <li><div><code>:is()</code>, <code>:where()</code></div> <a class="plugin" href="https://github.com/postcss/postcss-selector-matches">postcss-selector-matches</a></li>
+          <li><div><code>Logical Properties</code> </div> <a class="plugin" href="https://github.com/csstools/postcss-logical#readme">postcss-logical</a></li>
+          <li><div><code>backdrop-filter</code> </div> <a class="plugin" href="https://github.com/csstools/postcss-logical#readme">TBD</a></li>
+        </ul>
+      </section>
+      <section>
         <h1>Thank you!</h1>
         <div style="display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -847,6 +904,9 @@ figure img {
             <p class="caption">Chrome Developers Youtube</p></div>
         </div>
         <h2>@una</h2>
+      </section>
+      <section>
+        <h1>Questions?</h1>
       </section>
 
       <script src="lib/js/head.min.js"></script>

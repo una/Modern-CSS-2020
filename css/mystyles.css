@@ -397,3 +397,37 @@ img {
   object-position: center;
   height: 270px;
 }
+
+.plugin {
+  background: lavender;
+}
+
+.nonplugin {
+  background: rgb(223, 232, 238);
+}
+
+.plugin, .nonplugin {
+  text-align: right;
+  border-radius: 10px;
+  padding: 0 0.5rem;
+}
+.endlist {
+  width: 80%;
+}
+
+.endlist li {
+  font-size: 1.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.endlist li:first-child {
+  border-top: 1px solid lightgray;
+}
+
+.endlist li:nth-child(2n) {
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
