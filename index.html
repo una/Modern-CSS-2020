@@ -56,7 +56,7 @@
           <li class="fragment"><code>:is</code>, <code>:where</code></li>
           <li class="fragment">logical properties</li>
           <li class="fragment"><code>backdrop-filter</code></li>
-          <li class="fragment">Scroll-linked Animations</li>
+          <!-- <li class="fragment">Scroll-linked Animations</li> -->
           <li class="fragment">More!</li>
         </ul>
       </section>
@@ -316,7 +316,7 @@ if (window.CSS && CSS.registerProperty) {
 </div>
       </section>
       <section>
-        Gradient Interpolation Hints
+        <h1>Gradient Interpolation Hints & Easing</h1>
       </section>
       <section>
         <iframe width="100%" height="500px" frameborder="0" src="https://cdpn.io/una/debug/RwNGGmx"></iframe>
@@ -326,7 +326,43 @@ if (window.CSS && CSS.registerProperty) {
         <p class="ciu_embed" data-feature="mdn-css__types__image__gradient__linear-gradient__interpolation_hints" data-periods="future_3,future_1,current,past_1,past_2" data-accessible-colours="false"></p>
       </section>
       <section>
-        Fallback
+        <iframe width="100%" height="500px" src="https://larsenwork.com/easing-gradients/" style="outline: 1px solid gray" frameborder="0"></iframe>
+      </section>
+      <section>
+        <h2>Fallback: PostCSS Plugin <code>IE9+</code></h2>
+        <a class="fallback-link" href="https://larsenwork.com/easing-gradients/">postcss-easing-gradients</a>
+        <div style="margin-top: 1.5rem" contenteditable class="display-code css full">#future {
+  linear-gradient(
+    to bottom,
+    hsla(330, 100%, 45%, 1),
+    ease-in-out,
+    hsla(210, 100%, 45%, 1)
+  );
+};
+
+/* becomes */
+
+#forNow {
+  linear-gradient(
+    to bottom,
+    hsl(330, 100%, 45.1%) 0%,
+    hsl(331, 89.25%, 47.36%) 8.1%,
+    hsl(330.53, 79.69%, 48.96%) 15.5%,
+    hsl(328.56, 70.89%, 49.96%) 22.5%,
+    hsl(324.94, 63.52%, 50.4%) 29%,
+    hsl(319.21, 54.99%, 50.3%) 35.3%,
+    hsl(310.39, 46.14%, 49.68%) 41.2%,
+    hsl(296.53, 39.12%, 49.7%) 47.1%,
+    hsl(280.63, 42.91%, 53.43%) 52.9%,
+    hsl(265.14, 47.59%, 56.84%) 58.8%,
+    hsl(250.13, 52.52%, 59.88%) 64.7%,
+    hsl(235.88, 59.2%, 60.91%) 71%,
+    hsl(225.81, 68.23%, 57.85%) 77.5%,
+    hsl(218.93, 74.97%, 54.21%) 84.5%,
+    hsl(213.89, 79.63%, 49.97%) 91.9%,
+    hsl(210, 100%, 45.1%) 100%
+  );
+}; </div>
       </section>
       <section>
         <h1><code>attr()</code></h1>
@@ -510,43 +546,53 @@ if (window.CSS && CSS.registerProperty) {
         <h2><code>min()</code></h2>
       <div class="section--half colored-bg">
         <div class="demo resizable" >
-          <div class="ex14 box">min bound box</div>
+          <div class="ex14"><img src="img/disco-boi.jpg"></div>
         </div>
       </div>
       <div class="section--half">
   <div contenteditable class="display-code html">
-&lt;div class="ex14 box">A box bounding to a min size.&lt;/div&gt;
+&lt;div class="ex14">&lt;img src="img/disco-boi.jpg"&gt;
   </div>
   <style contenteditable class="display-code css">.ex14 {
-  width: min(40%, 60rem);
+  width: min(50%, 350px);
   margin: 0 auto;
 }
           </style>
         </div>
+      </section>
+      <section>
+      <section>
+        <img src="img/min.gif" style="    max-width: 800px;
+    margin: 0 auto;" alt="">
+      </section>
       </section>
       <section>
         <h2><code>max()</code></h2>
       <div class="section--half colored-bg">
         <div class="demo resizable" >
-          <div class="ex15 box">A box bounding to a max size.</div>
+          <div class="ex15"><img src="img/disco-boi.jpg"></div>
         </div>
       </div>
       <div class="section--half">
-  <div contenteditable class="display-code html">
-&lt;div class="ex15 box">A box bounding to a max size.&lt;/div&gt;
+        <div contenteditable class="display-code html">
+&lt;div class="ex15">&lt;img src="img/disco-boi.jpg"&gt;
   </div>
   <style contenteditable class="display-code css">.ex15 {
-  width: max(60%, 10rem);
+  width: max(50%, 350px);
   margin: 0 auto;
 }
           </style>
         </div>
       </section>
       <section>
+        <img src="img/max.gif" style="    max-width: 800px;
+    margin: 0 auto;" alt="">
+      </section>
+      <section>
         <h2><code>clamp()</code></h2>
       <div class="section--half colored-bg">
         <div class="demo resizable" >
-          <div class="ex16 box">A box with a clamped size. The <code>ch</code> unit is great for paragraphs or areas with blocks of text.</div>
+          <div class="ex16 box">A box with a clamped size for its width parameter. The <code>ch</code> unit is great for paragraphs or areas with blocks of text for which you want optimize legibility in a defined width parameter.</div>
         </div>
       </div>
       <div class="section--half">
@@ -560,6 +606,10 @@ if (window.CSS && CSS.registerProperty) {
 }
           </style>
         </div>
+      </section>
+      <section>
+        <img src="img/clamp.gif" style="    max-width: 800px;
+    margin: 0 auto;" alt="">
       </section>
       <section>
         <h2><code>clamp()</code></h2>
@@ -739,6 +789,20 @@ figure img {
 }</div>
       </section>
       <section>
+        <h2>Fallback: PostCSS Polyfill <code>All</code></h2>
+        <a class="fallback-link" href="cssnext.github.io">cssnext.github.io</a>
+        <div style="margin-top: 1.5rem" contenteditable class="display-code css full">p:matches(:first-child, .special) {
+  color: red;
+}
+
+/* becomes */
+
+p:first-child
+p.special) {
+  color: red;
+}</div>
+      </section>
+      <section>
         <h1>Logical Properties</h1>
       </section>
       <section>
@@ -788,12 +852,13 @@ figure img {
         <img src="img/mdnlogical.png" alt="">
       </section>
       <section>
+        <video src="img/gap-i18n.mp4" autoplay loop controls mute></video>
+        <a href="twitter.com/argyleink">@argyleink</a>
+      </section>
+      <section>
         <h2>Logical Properties</h2>
         <p class="ciu_embed" data-feature="css-logical-props" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
           </p>
-      </section>
-      <section>
-        <blockquote style="margin: 0 auto" class="twitter-tweet"><p lang="en" dir="ltr">Here&#39;s gap + flexbox handling international document flows and directions! 💯 Something quite tedious to do by hand with margin &amp; friends. <br><br>Combine this with logical properties and you have yourself single definition international spacing and layout 😍 <a href="https://t.co/Z6yHjo5qQZ">https://t.co/Z6yHjo5qQZ</a> <a href="https://t.co/2TAiQOKYJ1">pic.twitter.com/2TAiQOKYJ1</a></p>&mdash; Adam Argyle (@argyleink) <a href="https://twitter.com/argyleink/status/1255201934241198081?ref_src=twsrc%5Etfw">April 28, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
       </section>
       <section>
         <h2>Fallback: PostCSS Polyfill <code>All</code></h2>
@@ -839,6 +904,41 @@ figure img {
 }</style>       
       </section>
       <section>
+        <h2><code>backdrop-filter</code></h2>
+        <p class="ciu_embed" data-feature="css-backdrop-filter" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+          </p>
+      </section>
+      <section>
+        <h2>Fallback: SVG Filter Effects <code>All</code></h2>
+        <div style="margin-top: 1.5rem" contenteditable class="display-code html full">&lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"&gt; 
+  &lt;defs&gt;
+    &lt;filter id="backdrop-filter-blur" x="0" y="0" width="100%" height="100%"&gt;
+      &lt;!-- can't use xlink:href="#image": no support in FF --&gt;
+      &lt;feImage x="0" y="0" width="300" height="300" xlink:href="http://unsplash.it/300/300?image=34"/&gt;
+      &lt;!-- blur image --&gt;
+      &lt;feGaussianBlur stdDeviation="3" /&gt;
+      &lt;!-- improve blur at the edges --&gt;
+      &lt;feComponentTransfer result="blur"&gt;
+        &lt;feFuncA type="discrete" tableValues="1 1"/&gt;
+      &lt;/feComponentTransfer&gt;
+      &lt;!-- increase opacity of sourceGraphic --&gt;
+      &lt;feComponentTransfer in="SourceGraphic" result="source"&gt;
+        &lt;feFuncA type="linear" slope="2" intercept="0"/&gt;
+      &lt;/feComponentTransfer&gt;
+      &lt;!-- Clip blur based on source --&gt;
+      &lt;feComposite operator="in" in="blur" in2="source" /&gt;
+      &lt;!-- Merge --&gt;
+      &lt;feMerge&gt;
+        &lt;feMergeNode  /&gt;
+        &lt;feMergeNode in="SourceGraphic" /&gt;
+      &lt;/feMerge&gt;
+    &lt;/filter&gt;
+    &lt;image id="image" xlink:href="http://unsplash.it/300/300?image=34" x="0" y="0" height="300" width="300"&gt;&lt;/image&gt;
+  &lt;/defs&gt;
+&lt;/svg&gt;</div>
+<small style="margin-top: 1rem; margin-right: -50rem;"><a href="https://codepen.io/iamvdo/pen/VLOGdw">Example from @iamvdo</a></small>
+      </section>
+      <!-- <section>
         <h1><code>@scroll-timeline</code></h1>
       </section>
       <section>
@@ -864,25 +964,25 @@ figure img {
     background: var(--color);
   }
             </style>       
-      </section>
+      </section> -->
       <section>
         <h2>You can use modern CSS today!</h2>
       </section>
       <section>
         <h2 style="font-size: 2.25rem;">You can use modern CSS today!</h2>
         <ul class="endlist">
-          <li><div><code>currentColor</code></div> <span class="nonplugin">supported in older browsers</span></li>
+          <li><div><code>currentColor</code></div> <span class="nonplugin">IE9+</span></li>
           <li><div><code>--var()</code></div> <a class="plugin" href="https://github.com/jonathantneal/postcss-custom-properties">postcss-custom-properties</a></li>
           <li><div><code>@property</code></div> <a class="plugin" href="https://github.com/jonathantneal/postcss-register-property">postcss-register-property</a></li>
-          <li><div><code>Gradient interpolation hints</code></div> <span class="nonplugin">TBD</span></li>
-          <li><div><code>attr()</code></div> <span class="nonplugin">supported in older browsers</span></li>
-          <li><div><code>calc()</code></div> <span class="nonplugin">supported in older browsers</span></li>
+          <li><div><code>Gradient interpolation hints</code></div> <a class="plugin" href="https://larsenwork.com/easing-gradients/">postcss-easing-gradients</a></li>
+          <li><div><code>attr()</code></div> <span class="nonplugin">IE8+</span></li>
+          <li><div><code>calc()</code></div> <span class="nonplugin">IE9+* (except type casting+)</span></li>
           <li><div><code>min()</code>, <code>max()</code>, <code>clamp()</code></div> <span class="nonplugin">media queries</span></li>
-          <li><div><code>palce-items</code></div> <a class="plugin" href="https://github.com/postcss/postcss-autoprefixer">postcss-autoprefixer</a></li>
+          <li><div><code>place-items</code></div> <a class="plugin" href="https://github.com/postcss/postcss-autoprefixer">postcss-autoprefixer</a></li>
           <li><div><code>aspect-ratio</code></div> <span class="nonplugin">padding hack</span></li>
-          <li><div><code>:is()</code>, <code>:where()</code></div> <a class="plugin" href="https://github.com/postcss/postcss-selector-matches">postcss-selector-matches</a></li>
+          <li><div><code>:is()</code>, <code>:where()</code>, (<code>:matches()</code>)</div> <a class="plugin" href="https://cssnext.github.io/features/#matches-pseudo-class">postcss-cssnext</a></li>
           <li><div><code>Logical Properties</code> </div> <a class="plugin" href="https://github.com/csstools/postcss-logical#readme">postcss-logical</a></li>
-          <li><div><code>backdrop-filter</code> </div> <a class="plugin" href="https://github.com/csstools/postcss-logical#readme">TBD</a></li>
+          <li><div><code>backdrop-filter</code> </div> <span class="nonplugin" href="https://codepen.io/iamvdo/pen/VLOGdw?editors=0110">SVG Filter Effects</span></li>
         </ul>
       </section>
       <section>
